@@ -18,7 +18,7 @@ namespace TDD_Find_Prime_Numbers_Lab_JT
         }
 
         [Fact]
-        public void IfInputIsZero_Result() //clear
+        public void IfInputIsZero_ResultIsZero() //clear
         {
             // Arrange - Setup the values for the function
             var Zero = 0;
@@ -30,9 +30,34 @@ namespace TDD_Find_Prime_Numbers_Lab_JT
             Assert.True(empty.Count == result.Count && empty.Count == 0);
         }
 
-        [Fact]//before this fact,the text explorer works fine.
+
+        [Fact]
+        public void IfInputIsOne_ResultIsEmpty()
+        {
+            // Arrange - Setup the values for the function
+            var One = 1;
+
+            // Act - Perform an operation
+            var result = prime.ListPrimes(One);
+
+            // Assert - Check for validity
+            Assert.True(empty.Count.Equals(result.Count) && empty.Count is 0);
+        }
+
+        [Fact] //before this fact,the text explorer works fine.
+        public void GivenAValueOfThree_TheExpectedResultIsAListContainingOnlyTwoAndThree()
+        {
+            var Three = 3;
+
+            var result = prime.GetPrime(Three);
+
+            Assert.True(result[0] is 2 && result[1] is 3); //how to determine if the result at the specific index matches or not?
+        }
+
+            [Fact]
         public void IfPrimeNumbersUpTo31()
         { 
+ 
             var value = 31;
 
             bool result = prime.GetPrime(value);
